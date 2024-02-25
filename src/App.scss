@@ -1,0 +1,187 @@
+.title{
+  text-align: center;
+}
+
+.name{
+  text-transform: uppercase;
+  text-decoration: double;
+}
+
+.modal-show {
+  background-color: rgba(0, 0, 0, 0.2);
+  width: 100vw;
+  height: 100vmax;
+  z-index: 99;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+}
+
+.btn {
+  border-style: dashed;
+}
+
+.darkTheme {
+  //App.js
+  .MuiSwitch-thumb {
+    background-color: white;
+  }
+  .MuiFormControlLabel-label {
+    color: white;
+    font-family: monospace;
+    font-weight: bold;
+  }
+  .css-5ryogn-MuiButtonBase-root-MuiSwitch-switchBase.Mui-checked+.MuiSwitch-track {
+    background-color: #424242;
+  }
+  //Film.js
+  .custom_pagination {
+    margin-top: 0.5rem;
+    .MuiButtonBase-root {
+        color: white;
+    }
+    .css-yuzg60-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected {
+        background-color: #424242;
+    }
+    .css-yuzg60-MuiButtonBase-root-MuiPaginationItem-root:hover {
+        background-color: #212121;
+    }
+  }
+  .custom_card.css-bhp9pd-MuiPaper-root-MuiCard-root {
+    border: 0.25rem solid;
+    border-color: #212121;
+    border-radius: 1rem;
+    .custom_card_content.css-46bh2p-MuiCardContent-root {
+      background-color: #424242;
+      .content_favo {
+        display: flex;
+        .is_favo_icon.yes {
+          color: #fbc02d;
+        }
+        .is_favo_icon.no {
+          color: #bdbdbd;
+        }
+        .custom_icon_btn {
+          padding: 0;
+        }
+      }
+      .custom_txt.css-ag7rrr-MuiTypography-root {
+        color: white;
+        font-family: monospace;
+      }
+      .custom_txt.css-2ulfj5-MuiTypography-root {
+        color: white;
+        font-family: monospace;
+      }
+      .custom_btn {
+        .custom_link {
+          text-decoration: none;
+          .css-ahj2mt-MuiTypography-root {
+            color: white;
+            font-family: monospace;
+          }
+        }
+        .css-sghohy-MuiButtonBase-root-MuiButton-root {
+          text-decoration: none;
+          border: 0.05rem solid white;
+          background-color: #616161;
+        }
+        .css-sghohy-MuiButtonBase-root-MuiButton-root:hover {
+          background-color: #212121;
+        }
+      }
+      .custom_btn.css-sghohy-MuiButtonBase-root-MuiButton-root {
+        text-decoration: none;
+        border: 0.05rem solid white;
+        background-color: #616161;
+      }
+      .custom_btn.css-sghohy-MuiButtonBase-root-MuiButton-root:hover {
+        background-color: #212121;
+      }
+    }
+  }
+}
+
+.whiteTheme {
+  //App.js
+  .MuiSwitch-thumb {
+    background-color: #0d47a1;
+  }
+  .MuiFormControlLabel-label {
+    color: #0d47a1;
+    font-family: monospace;
+    font-weight: bold;
+  }
+  .MuiSwitch-track {
+    background-color: #fbc02d;
+  }
+  //Film.js
+  .custom_pagination {
+    margin-top: 0.5rem;
+    .MuiButtonBase-root {
+        color: #0d47a1;
+    }
+    .css-yuzg60-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected {
+      color: white;
+      background-color: #0d47a1;
+    }
+    .css-yuzg60-MuiButtonBase-root-MuiPaginationItem-root:hover {
+      color: #0d47a1;
+      background-color: #fbc02d;
+    }
+  }
+  .custom_card.css-bhp9pd-MuiPaper-root-MuiCard-root {
+    border: 0.25rem solid;
+    border-color: #0d47a1;
+    border-radius: 1rem;
+    .custom_card_content.css-46bh2p-MuiCardContent-root {
+      background-color: #0d47a1;
+      .content_favo {
+        display: flex;
+        .is_favo_icon.yes {
+          color: #fbc02d;
+        }
+        .is_favo_icon.no {
+          color: #bdbdbd;
+        }
+        .custom_icon_btn {
+          padding: 0;
+        }
+      }
+      .custom_txt.css-ag7rrr-MuiTypography-root {
+        color: white;
+        font-family: monospace;
+      }
+      .custom_txt.css-2ulfj5-MuiTypography-root {
+        color: white;
+        font-family: monospace;
+      }
+      .custom_btn {
+        .custom_link {
+          text-decoration: none;
+          .css-ahj2mt-MuiTypography-root {
+            color: white;
+            font-family: monospace;
+          }
+        }
+        .css-sghohy-MuiButtonBase-root-MuiButton-root {
+          text-decoration: none;
+          border: 0.05rem solid white;
+          background-color: #616161;
+        }
+        .css-sghohy-MuiButtonBase-root-MuiButton-root:hover {
+          background-color: #212121;
+        }
+      }
+      .custom_btn.css-sghohy-MuiButtonBase-root-MuiButton-root {
+        text-decoration: none;
+        border: 0.05rem solid white;
+        background-color: #1565c0;
+      }
+      .custom_btn.css-sghohy-MuiButtonBase-root-MuiButton-root:hover {
+        background-color: #fbc02d;
+      }
+    }
+  }
+}
