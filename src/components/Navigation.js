@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { AppBar, Avatar, Box, Button, Container, IconButton, Menu, MenuItem, Toolbar, Tooltip, Typography } from '@mui/material';
+import { AppBar, Avatar, Box, Button, Container, IconButton, Menu, MenuItem, TextField, Toolbar, Tooltip, Typography } from '@mui/material';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import EightKIcon from '@mui/icons-material/EightK';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -29,6 +29,9 @@ export default function Navigation() {
   const useStyle = makeStyles(() => ({
     darkTheme: {
       '& .navigation_bar': {
+        '& .css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root': {
+          color: 'white'
+        },
         '&.css-hip9hq-MuiPaper-root-MuiAppBar-root': {
           backgroundColor: grey[800],
           fontFamily: 'monospace',
@@ -111,6 +114,9 @@ export default function Navigation() {
     },
     whiteTheme: {
       '& .navigation_bar': {
+        '& .css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root': {
+          color: 'white'
+        },
         '&.css-hip9hq-MuiPaper-root-MuiAppBar-root': {
           backgroundColor: blue[900],
           fontFamily: 'monospace',
@@ -236,7 +242,7 @@ export default function Navigation() {
                 textDecoration: 'none',
               }}
             >
-              PHEPHIMVN
+              SHOPPEE FAKE
             </Typography>
             <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
               <IconButton

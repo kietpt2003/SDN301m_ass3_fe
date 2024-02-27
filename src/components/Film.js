@@ -1,10 +1,13 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
-import { Box, Button, Card, CardContent, CardMedia, Container, Grid, IconButton, Pagination, Stack, Typography } from '@mui/material';
+import { Box, Button, Card, CardContent, CardMedia, Container, Grid, IconButton, Pagination, Stack, TextField, Typography } from '@mui/material';
 import StarIcon from '@mui/icons-material/Star';
 import { ThemeContext } from './ThemeContext';
 import { CheckLogin } from './CheckLogin';
 import axios from 'axios';
+import SearchIcon from '@mui/icons-material/Search';
+import { blue, grey } from '@mui/material/colors';
+import { makeStyles } from '@material-ui/core';
 
 export default function Film() {
     const [profile, setProfile] = useState(null);
@@ -16,6 +19,7 @@ export default function Film() {
     const [page, setPage] = useState(1);
     const [flowers, setFlowers] = useState([]);
     const [totalPages, setTotalPages] = useState(1);
+    const [searchValue, setSearchValue] = useState('');
 
     const getFlowersByPage = async (page) => {
         try {
@@ -36,6 +40,40 @@ export default function Film() {
     const handleCloseDialog = () => {
         setOpenDiaglog(false);
     };
+
+    const useStyle = makeStyles(() => ({
+        darkTheme: {
+            '& .css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root': {
+                backgroundColor: grey[800],
+                color: 'white'
+            },
+        },
+        whiteTheme: {
+            '& .css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root': {
+                backgroundColor: blue[900],
+                color: 'white',
+            },
+        }
+    }))
+    const classes = useStyle();
+
+    const handleSearch = async (searchName, pageReq) => {
+        pageReq = parseInt(pageReq) || 1;
+        setSearchValue(searchName);
+        await axios.get(`http://localhost:8080/api/Orchids/name?name=${searchName}&page=${pageReq}`)
+            .then(response => {
+                if (response.data) {
+                    console.log('check data: ', response.data);
+                    setFlowers(response.data.data.orchidsArr);
+                    setTotalPages(response.data.data.totalPages);
+                    setPage(response.data.data.page);
+                }
+            })
+            .catch(error => {
+                console.error(error);
+            }
+            )
+    }
 
     const handleChangePage = async (event, value) => {
         await getFlowersByPage(value);
@@ -132,6 +170,13 @@ export default function Film() {
         //     </Box>
         // </Container>
         <Container className={dark ? 'darkTheme' : 'whiteTheme'} fixed>
+            <Box className={dark ? classes.darkTheme : classes.whiteTheme} sx={{ display: 'flex', alignItems: 'center', paddingBottom: '1rem', paddingTop: '1rem' }}>
+                <TextField
+                    value={searchValue}
+                    onChange={(e) => handleSearch(e.target.value)}
+                    placeholder="Search..."
+                />
+            </Box>
             <Box>
                 <Grid container spacing={2}>
                     {flowers.map((flower, index) => (
