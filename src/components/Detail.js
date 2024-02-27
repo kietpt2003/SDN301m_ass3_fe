@@ -273,12 +273,29 @@ export default function Detail() {
     }))
     const classes = useStyle();
     const [isOpen, setIsOpen] = useState(false);
-    const userName = useParams();
+    const flowerParams = useParams();
     const [film, setFilm] = useState(null);
+    const [flower, setFlower] = useState(null);
+
+    const getFlowerById = async () => {
+        await axios.get(`http://localhost:8080/api/Orchids/${flowerParams.id}`)
+            .then(response => {
+                if (response.data) {
+                    console.log('check data: ', response.data);
+                    // setFilm(response.data[0]);
+                    setFlower(response.data.data);
+                }
+            })
+            .catch(error => {
+                console.error(error);
+            }
+            )
+    }
+
     const getFilm = async () => {
         await axios.get('https://64e75fafb0fd9648b78fdde6.mockapi.io/listFavo', {
             params: {
-                id: userName.id
+                id: flowerParams.id
             }
         })
             .then(response => {
@@ -299,7 +316,8 @@ export default function Detail() {
         return pattern.test(str);
     }
     useEffect(() => {
-        getFilm()
+        // getFilm();
+        getFlowerById();
     }, [])
     return (
         <Container className={dark ? classes.darkTheme : classes.whiteTheme}>
